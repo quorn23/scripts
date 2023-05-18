@@ -4,20 +4,29 @@
 #                                         #
 # Search Movies per files with cross-seed #
 #                                         #
-# V1.1 Gabe                               #
+# V1.5 Gabe                               #
 ###########################################
 
-function single_letter_search() {
-  letter="$1"
-  folders="/data/media/movies/$letter*"
+#!/bin/bash
+
+base_path="/data/media/movies"
+api_base_url="http://cross-seed:2468"
+
+function process_folders() {
+  folders="$1"
 
   for folder in $folders; do
     if [ -d "$folder" ]; then
       echo "Processing folder: $folder"
-      curl -XPOST http://cross-seed:2468/api/webhook --data-urlencode "path=$folder"
+      curl -XPOST "${api_base_url}/api/webhook" --data-urlencode "path=$folder"
       sleep 60
     fi
   done
+}
+
+function single_letter_search() {
+  letter="$1"
+  process_folders "${base_path}/${letter}*"
 }
 
 function multi_search() {
@@ -25,14 +34,7 @@ function multi_search() {
   end_letter="$2"
 
   for letter in $(eval echo "{$start_letter..$end_letter}"); do
-    folders="/data/media/movies/$letter*"
-    for folder in $folders; do
-      if [ -d "$folder" ]; then
-        echo "Processing folder: $folder"
-        curl -XPOST http://cross-seed:2468/api/webhook --data-urlencode "path=$folder"
-        sleep 60
-      fi
-    done
+    process_folders "${base_path}/${letter}*"
   done
 }
 
