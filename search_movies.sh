@@ -8,7 +8,7 @@
 # Added multi base paths                  #
 # Added lower case check                  #
 # Replaced eval                           #
-# Base_paths check
+# Base_paths check                        #
 ###########################################
 
 #!/bin/bash
