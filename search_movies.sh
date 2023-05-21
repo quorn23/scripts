@@ -7,12 +7,21 @@
 # V2.0 Gabe                               #
 # Added multi base paths                  #
 # Added lower case check                  #
+# Replaced eval                           #
+# Base_paths check
 ###########################################
 
 #!/bin/bash
 
-base_paths=("/data/media/movies/" "/data/media/tvshows/")
+base_paths=("/data/media/movies" "/data/media/movies4k/")
 api_base_url="http://cross-seed:2468"
+
+# Add a slash at the end of each base path if it missing
+for i in "${!base_paths[@]}"; do
+  if [[ "${base_paths[$i]}" != */ ]]; then
+    base_paths[$i]="${base_paths[$i]}/"
+ 
+done
 
 function process_folders() {
   folders="$1"
@@ -40,7 +49,7 @@ function multi_search() {
   start_letter=$(echo "$start_letter" | tr '[:lower:]' '[:upper:]')
   end_letter=$(echo "$end_letter" | tr '[:lower:]' '[:upper:]')
 
-  for letter in $(eval echo "{$start_letter..$end_letter}"); do
+  for letter in $(seq -f "%02g" $(printf '%d' "'$start_letter") $(printf '%d' "'$end_letter")); do
     for base_path in "${base_paths[@]}"; do
       process_folders "${base_path}${letter}*"
     done
