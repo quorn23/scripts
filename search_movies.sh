@@ -13,14 +13,14 @@
 
 #!/bin/bash
 
-base_paths=("/data/media/movies" "/data/media/movies4k/")
+#base_paths=("/data/media/movies" "/data/media/movies4k/")
+base_paths=("/data/media/movies/" "/data/media/movies/")
 api_base_url="http://cross-seed:2468"
 
-# Add a slash at the end of each base path if it missing
 for i in "${!base_paths[@]}"; do
   if [[ "${base_paths[$i]}" != */ ]]; then
     base_paths[$i]="${base_paths[$i]}/"
- 
+  fi
 done
 
 function process_folders() {
