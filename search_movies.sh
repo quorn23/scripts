@@ -4,12 +4,14 @@
 #                                         #
 # Search Movies per files with cross-seed #
 #                                         #
-# V1.5 Gabe                               #
+# V2.0 Gabe                               #
+# Added multi base paths                  #
+# Added lower case check                  #
 ###########################################
 
 #!/bin/bash
 
-base_path="/data/media/movies"
+base_paths=("/data/media/movies/" "/data/media/tvshows/")
 api_base_url="http://cross-seed:2468"
 
 function process_folders() {
@@ -26,15 +28,22 @@ function process_folders() {
 
 function single_letter_search() {
   letter="$1"
-  process_folders "${base_path}/${letter}*"
+  letter=$(echo "$letter" | tr '[:lower:]' '[:upper:]')
+  for base_path in "${base_paths[@]}"; do
+    process_folders "${base_path}${letter}*"
+  done
 }
 
 function multi_search() {
   start_letter="$1"
   end_letter="$2"
+  start_letter=$(echo "$start_letter" | tr '[:lower:]' '[:upper:]')
+  end_letter=$(echo "$end_letter" | tr '[:lower:]' '[:upper:]')
 
   for letter in $(eval echo "{$start_letter..$end_letter}"); do
-    process_folders "${base_path}/${letter}*"
+    for base_path in "${base_paths[@]}"; do
+      process_folders "${base_path}${letter}*"
+    done
   done
 }
 
