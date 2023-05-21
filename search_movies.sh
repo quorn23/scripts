@@ -13,8 +13,7 @@
 
 #!/bin/bash
 
-#base_paths=("/data/media/movies" "/data/media/movies4k/")
-base_paths=("/data/media/movies/" "/data/media/movies/")
+base_paths=("/data/media/movies" "/data/media/movies4k/")
 api_base_url="http://cross-seed:2468"
 
 for i in "${!base_paths[@]}"; do
