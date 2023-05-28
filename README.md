@@ -14,3 +14,11 @@ chmod +x
 adapt paths and host if needed
 ```
 Credits to baker for the original script and yammes for adapting it to cross-seed api (v5+)
+
+###scripts for the arrs and brrs
+https://github.com/s0up4200/scripts-for-the-arrs-and-brrs
+Soup amazing collection of scripts
+
+### seasonpackarr
+https://github.com/nuxencs/seasonpackarr
+Nux amazing seasonpackarr to grab seasonpacks with hardlink eps etc.
