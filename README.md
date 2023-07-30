@@ -28,3 +28,7 @@ Soup amazing collection of scripts
 ### seasonpackarr
 https://github.com/nuxencs/seasonpackarr
 Nux amazing seasonpackarr to grab seasonpacks with hardlink eps etc.
+
+## Upgraderr Scripts
+https://gist.github.com/kantjer01/public
+BZs collection of scripts to use with Upgraderr
