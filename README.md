@@ -20,6 +20,7 @@ Credits to baker for the original script and yammes for adapting it to cross-see
 chmod +x 
 adapt hosts if needed
 ```
+Start the script, choose the number for the category you want
 
 ### scripts for the arrs and brrs
 https://github.com/s0up4200/scripts-for-the-arrs-and-brrs
