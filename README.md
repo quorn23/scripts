@@ -16,6 +16,7 @@ adapt paths and host if needed
 Credits to baker for the original script and yammes for adapting it to cross-seed api (v5+)
 
 ## search_per_cat.sh
+Search Cross-seeds in a specific category via hash search
 ```
 chmod +x 
 adapt hosts if needed
