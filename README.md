@@ -14,6 +14,7 @@ chmod +x
 adapt paths and host if needed
 ```
 Credits to baker for the original script and yammes for adapting it to cross-seed api (v5+)
+
 Latest version: https://github.com/yammes08/Scripts
 
 ### search_per_cat.sh
