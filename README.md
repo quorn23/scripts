@@ -1,6 +1,13 @@
 # scripts
 ## random scripts
 
+### searchbyletter.sh
+Manual search your existing data for matches, needs to have dataDirs etc. in CS config setup porperly
+```
+chmod +x 
+Check the config part on top,
+adapt paths,host and api key as needed
+```
 ### search_movies.sh
 Manual search for files via cross-seed api (v5+)
 ```
